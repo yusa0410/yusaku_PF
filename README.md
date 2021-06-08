@@ -1,24 +1,44 @@
-# README
+## サイト概要
+映画好きが集うコミュニティサイト  
+・鑑賞した映画の管理。感想や評価を記録する。  
+・他会員の鑑賞した映画の評価などを閲覧可能  
+・フォローすることで会員同士でコミュニケーションをとることができる。  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### サイトテーマ
+映画の感動を誰かと共有しよう！  
+映画で日々を豊かにしよう！  
 
-Things you may want to cover:
+### テーマを選んだ理由
+映画好きでたくさんの映画を鑑賞した経験から、ジャンルや評価ごとに分けて保存できるようなアプリが欲しいと
+以前から思っていた。  
+具体的には以下３点のニーズを満たすためです。  
+・自分が鑑賞した映画をジャンルや評価ごとに整理して保存しておきたい人のため  
+・他の映画好きの人の鑑賞した映画を見たり、そこからつながる交流をしたい人のため  
+・好きな作品の感想などをコメントにてシェアしたい人のため。  
 
-* Ruby version
+### ターゲットユーザ
+・映画好きの趣味を共有できるコミュニティを探している人  
+・一緒に映画を見に行けるような友人を作りたい人  
 
-* System dependencies
+### 主な利用シーン
+・鑑賞した映画の記録を残す。  
+・評価の高い映画を探す。  
+・映画について誰かとメッセージでやりとりをする。  
 
-* Configuration
+## 設計書
+https://docs.google.com/spreadsheets/d/1C0iNLdaR4JFYPRXQhOCOQH8jPODdQMOOgJfOygkk4GE/edit#gid=1921499739
+https://app.diagrams.net/#G1CXeiiSbx-dQlDIq-1dZ0MzuBOHwTlaB8
 
-* Database creation
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1CSPqI1Ctn4pWwZFS7239Bz4cKpHOWVssnesTdbJfrTI/edit#gid=945468465
 
-* Database initialization
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
