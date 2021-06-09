@@ -1,0 +1,18 @@
+<h1>ユーザー詳細</h1>
+
+<p>画像</p>
+<p><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", format: "no_image.jpg" %></p>
+
+<p>ユーザー名</p>
+<p><%= user.username %></p>
+
+<p>プロフィール</p>
+<p><%= user.introduction %></p>
+
+<p>
+  <%= link_to "編集する", edit_movie_path(@movie), class: "btn btn-md btn-success" %>
+</p>
+
+<% @user.movies.each do |movie| %>
+<p><%= movie.title %></p>
+<% end %>

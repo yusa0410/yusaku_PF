@@ -2,7 +2,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
   def change
     create_table :profiles do |t|
       t.string :username
-      t.string :image_id
+      t.string :profile_image_id
       t.string :introduction
       t.integer :user_id
 

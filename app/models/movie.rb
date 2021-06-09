@@ -1,7 +1,8 @@
 class Movie < ApplicationRecord
 
   belongs_to :user
-  has_many :movie_comment, dependent: destroy
-  has_many :favorite, dependent: destroy
+  has_many :movie_comment, dependent: :destroy
+  has_many :favorite, dependent: :destroy
+  belongs_to :genre
 
 end

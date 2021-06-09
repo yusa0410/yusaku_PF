@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_123758) do
+ActiveRecord::Schema.define(version: 2021_06_09_140310) do
 
   create_table "direct_messages", force: :cascade do |t|
     t.integer "user_id"
@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(version: 2021_06_08_123758) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "movie_comments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "movie_id"
@@ -44,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_123758) do
 
   create_table "movies", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "genre_id"
     t.string "title"
     t.string "image_id"
     t.integer "date"
@@ -55,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_123758) do
 
   create_table "profiles", force: :cascade do |t|
     t.string "username"
-    t.string "image_id"
+    t.string "profile_image_id"
     t.string "introduction"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -86,6 +93,8 @@ ActiveRecord::Schema.define(version: 2021_06_08_123758) do
     t.string "family_name"
     t.string "first_name"
     t.string "username"
+    t.string "profile_image_id"
+    t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
