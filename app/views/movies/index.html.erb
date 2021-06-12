@@ -1,2 +1,9 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<h1>投稿一覧</h1>
+
+<% @movies.each do |movie| %>
+<%= link_to movie.title, movie_path(movie.id) %>
+<%= render 'favorites/favorite', movie: movie %>
+<p>コメント数：<%= movie.movie_comments.count %></p>
+
+<% end %>
+

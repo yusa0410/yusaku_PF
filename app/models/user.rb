@@ -4,12 +4,31 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :movie, dependent: :destroy
-  has_many :favorite, dependent: :destroy
-  has_many :relationship, dependent: :destroy
-  has_many :movie_comment, dependent: :destroy
-  has_many :profile, dependent: :destroy
-  has_many :direct_message, dependent: :destroy
-  has_many :entry, dependent: :destroy
+  has_many :movies, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :movie_comments, dependent: :destroy
+  has_many :profiles, dependent: :destroy
+  has_many :direct_messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
+
+  has_many :followers, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy, inverse_of: :follower
+  has_many :followings, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy, inverse_of: :followed
+
+  has_many :following_users, through: :followings, source: :followed
+  has_many :follower_users, through: :followers, source: :follower
+
+  def follow(other_user)
+    Relationship.create(follower_id: id, followed_id: other_user.id)
+  end
+
+  def unfollow(other_user)
+    relationship = self.followings.find_by(followed_id: other_user.id)
+    relationship.destroy if relationship
+  end
+
+  def following?(other_user)
+    self.following_users.include?(other_user)
+  end
+
 
 end

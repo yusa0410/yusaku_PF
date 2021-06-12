@@ -1,0 +1,9 @@
+<p>
+  <% movie.movie_comments.each do |movie_comment|%>
+  <%= movie_comment.user.username %>
+  <%= movie_comment.comment %>
+    <% if movie_comment.user_id == current_user.id %>
+    <%= link_to "Delete", movie_movie_comment_path(movie,movie_comment.id), method: :delete, class: "btn-sm btn-danger",remote: true %>
+    <% end %>
+  <% end %>
+</p>

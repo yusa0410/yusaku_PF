@@ -1,18 +1,36 @@
 <h1>ユーザー詳細</h1>
 
 <p>画像</p>
-<p><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", format: "no_image.jpg" %></p>
+<p><%= attachment_image_tag @user, :profile_image_id, :fill, 100, 100, fallback: "no_image.png", format: "no_image.png" %></p>
 
 <p>ユーザー名</p>
-<p><%= user.username %></p>
+<p><%= @user.username %></p>
 
 <p>プロフィール</p>
-<p><%= user.introduction %></p>
+<p><%= @user.introduction %></p>
+
+<% if current_user != @user %>
+<% if current_user.following?(@user) %>
+<p><%=link_to "フォロー外す", user_relationship_path(@user.id), method: :delete %></p>
+<% else %>
+<p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
+<% end %>
+<% end %>
+
+<p>フォロー数:<%= @user.followings.count %></p>
+<p>フォロワー数:<%= @user.followers.count %></p>
 
 <p>
-  <%= link_to "編集する", edit_movie_path(@movie), class: "btn btn-md btn-success" %>
+  <%= link_to "編集する", edit_user_path(@user), class: "btn btn-md btn-success" %>
+</p>
+
+<p>
+  <%= link_to "新規投稿", new_movie_path, class: "btn btn-md btn-success" %>
 </p>
 
 <% @user.movies.each do |movie| %>
-<p><%= movie.title %></p>
+<%= link_to movie_path(movie) do %>
+<%= movie.title %>
+<% end %>
+
 <% end %>
