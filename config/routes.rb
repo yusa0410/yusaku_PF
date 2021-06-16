@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resources :movie_comments, only: [:create, :destroy]
   end
 
+  resources :direct_messages, :only => [:create]
+  resources :rooms, :only => [:create, :show, :index]
+
   get "search" => "searches#search"
 
 
