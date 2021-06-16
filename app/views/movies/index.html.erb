@@ -2,7 +2,7 @@
 
 <% @movies.each do |movie| %>
 <%= link_to movie.title, movie_path(movie.id) %>
-<%= render 'favorites/favorite', movie: movie %>
+<p>♥<%= movie.favorites.count %></p>
 <p>コメント数：<%= movie.movie_comments.count %></p>
 
 <% end %>
