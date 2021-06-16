@@ -11,15 +11,15 @@
   </head>
 
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-          <%#= link_to "/" do %>
-          <%#= image_tag 'img/Borderless-logo.png', :size =>'200x120' %>
-          <%# end %>
+    <header class="top-page-header">
+      
+          <%= link_to "/" do %>
+          <%= image_tag "Borderless-logo.png", :size =>'100x70' %>
+          <% end %>
 
-          <nav>
-            <ul class="nav justify-content-end">
+
+        
+            <ul class="lists-right">
               <% if user_signed_in? %>
                <li class="nav-item"><%= link_to "マイページ",user_path(current_user), class: "size" %></li>
                <li class="nav-item"><%= link_to "ユーザー一覧",users_path, class: "size" %> </li>
@@ -30,10 +30,10 @@
                <li class="nav-item"><%= link_to "ログイン",new_user_session_path, class: "size"%></li>
               <% end %>
             </ul>
-          </nav>
+         
 
-        </div>
-      </nav>
+       
+      
     </header>
 
     <main class="main">

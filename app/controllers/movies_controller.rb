@@ -28,6 +28,7 @@ class MoviesController < ApplicationController
     @user = current_user
     @movies = Movie.all
     @movie = Movie.new
+    @users = User.all
   end
 
   def edit
