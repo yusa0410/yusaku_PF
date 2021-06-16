@@ -7,6 +7,8 @@
 
   <%=link_to user.username, user_path(user) %>
   投稿数：<%= user.movies.count %>
+  <p>フォロー数:<%= user.followings.count %></p>
+  <p>フォロワー数:<%= user.followers.count %></p>
 
 <% end %>
 

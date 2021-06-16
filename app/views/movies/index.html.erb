@@ -2,9 +2,21 @@
 
 <% @movies.each do |movie| %>
 <%= link_to movie.title, movie_path(movie.id) %>
+
+<div class="movie-rate" data-score="<%= movie.rate %>"></div>
+
 <p><%= link_to movie.user.username, user_path(movie.user) %></p>
 <p>♥<%= movie.favorites.count %></p>
 <p>コメント数：<%= movie.movie_comments.count %></p>
 
 <% end %>
 
+<script>
+  $('.movie-rate').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
