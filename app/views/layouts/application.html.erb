@@ -20,15 +20,15 @@
           <% end %>
 
           <nav>
-            <ul class="nav justify-content-end">
+            <ul class="navbar-nav mx-auto">
               <% if user_signed_in? %>
-               <li class="nav-item"><%= link_to "マイページ",user_path(current_user), class: "size" %></li>
-               <li class="nav-item"><%= link_to "ユーザー一覧",users_path, class: "size" %> </li>
-               <li class="nav-item"><%= link_to "投稿一覧",movies_path, class: "size" %></li>
-               <li class="nav-item"><%= link_to "ログアウト",destroy_user_session_path, method: :delete, class: "size" %></li>
+               <li class="nav-button btn btn-sm mx-2 my-auto"><%= link_to "マイページ",user_path(current_user), class: "size" %></li>
+               <li class="nav-button btn btn-sm mx-2 my-auto"><%= link_to "ユーザー一覧",users_path, class: "size" %> </li>
+               <li class="nav-button btn btn-sm mx-2 my-auto"><%= link_to "投稿一覧",movies_path, class: "size" %></li>
+               <li class="nav-button btn btn-sm mx-2 my-auto"><%= link_to "ログアウト",destroy_user_session_path, method: :delete, class: "size" %></li>
               <% else %>
-               <li class="nav-item"><%= link_to "新規登録",new_user_registration_path, class: "size" %> </li>
-               <li class="nav-item"><%= link_to "ログイン",new_user_session_path, class: "size"%></li>
+               <li class="nav-button btn btn-sm mx-2 my-auto"><%= link_to "新規登録",new_user_registration_path, class: "size" %> </li>
+               <li class="nav-button btn btn-sm mx-2 my-auto"><%= link_to "ログイン",new_user_session_path, class: "size"%></li>
               <% end %>
             </ul>
           </nav>
