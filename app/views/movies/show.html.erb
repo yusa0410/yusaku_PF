@@ -28,6 +28,8 @@
 <% end %>
 
 <script>
+$(document).on('turbolinks:load', function(){
+  $('.movie-rate').empty();
   $('.movie-rate').raty({
     readOnly: true,
     score: function() {
@@ -35,4 +37,5 @@
     },
     path: '/assets/'
   });
+});
 </script>
