@@ -44,5 +44,7 @@ class User < ApplicationRecord
     end
   end
 
+  attachment :profile_image
+
 
 end

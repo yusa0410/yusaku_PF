@@ -1,7 +1,7 @@
 <h1>ユーザー詳細</h1>
 
 <p>画像</p>
-<p><%= attachment_image_tag @user, :profile_image_id, :fill, 100, 100, fallback: "no_image.png", format: "no_image.png" %></p>
+<p><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.png", format: "no_image.png" %></p>
 
 <p>ユーザー名</p>
 <p><%= @user.username %></p>
@@ -17,8 +17,8 @@
 <% end %>
 <% end %>
 
-<p>フォロー数:<%= @user.followings.count %></p>
-<p>フォロワー数:<%= @user.followers.count %></p>
+<p>フォロー数:<%= link_to @user.followings.count, follows_user_path(@user.id) %></p>
+<p>フォロワー数:<%= link_to @user.followers.count, followers_user_path(@user.id) %></p>
 
 <p>
   <%= link_to "編集する", edit_user_path(@user), class: "btn btn-md btn-success" %>

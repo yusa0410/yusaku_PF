@@ -1,0 +1,11 @@
+<h2>Follow Users</h2>
+<% if @followings.exists? %>
+<% @followings.each do |user| %>
+    <%= attachment_image_tag(user, :profile_image, size:'100x100', fallback: "no_image.png") %>
+    <p><%= user.username %></p>
+    <p>フォロー数: <%= user.followings.count %></p>
+    <p>フォロワー数: <%= user.followers.count %></p>
+<% end %>
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>
