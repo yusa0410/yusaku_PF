@@ -1,1 +1,5 @@
 <h4>トップページ</h4>
+
+<% if user_signed_in? %>
+  <div class="col-auto mx-auto"><%= render 'searches/search' %></div>
+<% end %>
