@@ -20,5 +20,28 @@
 
 h1 {
   font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 100px;
+  font-weight: 100px;
+  color: #AA0000;
 }
 
+h5 {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 35px;
+}
+
+.big-bg {
+  background-size: cover;
+  background-position: 40% 70%;
+  background-repeat: no-repeat;
+}
+
+#top {
+  background-image: image-url("crowd-2045498_1920.jpg");
+  min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
