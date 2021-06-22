@@ -55,9 +55,9 @@
     <div class="pl-xl-5">
       <% if current_user != @user %>
       <% if current_user.following?(@user) %>
-      <p><%=link_to "フォロー外す", user_relationship_path(@user.id), method: :delete, class: "btn btn-md btn-success" %></p>
+        <p><%=link_to "フォロー外す", user_relationship_path(@user.id), method: :delete, class: "btn btn-md btn-success" %></p>
       <% else %>
-      <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-md btn-success" %></p>
+        <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-md btn-success" %></p>
       <% end %>
       <% end %>
     </div>
@@ -65,10 +65,10 @@
       <% if @user.id == current_user.id %>
       <% else %>
       <% if @isRoom == true %>
-      <p><a href="/rooms/<%= @roomId %>">チャットへ</a></p>
+        <p><a href="/rooms/<%= @roomId %>">チャットへ</a></p>
       <% else %>
-      <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
+        <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e| %>
       <%= e.hidden_field :user_id, :value=> @user.id %>
       <% end %>
       <%= f.submit "チャットを始める" %>
