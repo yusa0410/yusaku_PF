@@ -23,7 +23,7 @@
 
 h1 {
   font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-size: 100px;
+  font-size: 80px;
   font-weight: 100px;
   color: #AA0000;
 }
@@ -83,4 +83,8 @@ input[type="email"] {
 .actions input[type="submit"]:hover {
   cursor: pointer;
   background: #f0c14b;
+}
+
+.wrapper {
+   height: 30px;
 }
