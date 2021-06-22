@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-7">
+    <div class="col-8">
       <table class="table table-hover table-borderless">
         <tr>
           <th>作品名</th>
@@ -29,7 +29,7 @@
     
 
 
-    <div class="col-5 mt-5">
+    <div class="col-4 mt-5">
       <%= form_with(model:[@movie,@movie_comment], remote: true, method: :post, value: "") do |f| %>
       <%= f.text_area :comment, size: "50x3" %><br>
       <%= f.submit "送信する" %>
