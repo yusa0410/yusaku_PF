@@ -1,31 +1,57 @@
-<h1>作品詳細</h1>
-<p>作品名<%= @movie.title %></p>
-<p>レビュー<%= @movie.review %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-7">
+      <table class="table table-hover table-borderless">
+        <tr>
+          <th>作品名</th>
+          <td><%= @movie.title %></td>
+        </tr>
+        <tr>
+          <th>評価</th>
+          <td>
+            <div class="movie-rate" data-score="<%= @movie.rate %>"></div>
+          </td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @movie.genre.name %></td>
+        </tr>
+        <tr>
+          <th>感想</th>
+        　<td><%= @movie.review %></td>
+        </tr>
+          <th>いいね</th>
+          <td>
+            <div id="favorite_<%= @movie.id %>"><%= render "favorites/favorite", movie: @movie %></div>
+          </td>
+      </table>
+    </div>
+    
 
-<p>評価</p>
-<div class="movie-rate" data-score="<%= @movie.rate %>"></div>
 
-<p>視聴日<%= @movie.date %></p>
-<p>ジャンル<%= @movie.genre.name %></p>
-
-<div id="favorite_<%= @movie.id %>">
-    <%= render "favorites/favorite", movie: @movie %>
+    <div class="col-5 mt-5">
+      <%= form_with(model:[@movie,@movie_comment], remote: true, method: :post, value: "") do |f| %>
+      <%= f.text_area :comment, size: "50x3" %><br>
+      <%= f.submit "送信する" %>
+      <% end %>
+      
+      <div id="comment-<%= @movie.id %>">
+        <%= render 'movies/comment', movie: @movie %>
+      </div>
+    </div>
+  </div>
 </div>
 
-
-<%= form_with(model:[@movie,@movie_comment], remote: true, method: :post, value: "") do |f| %>
-<%= f.text_area :comment, size: "80x10" %><br>
-<%= f.submit "送信する" %>
-<% end %>
-
-<div id="comment-<%= @movie.id %>">
-     <%= render 'movies/comment', movie: @movie %>
+<div class="container">
+  <div class="row">
+    <div class="col-7 text-center p-3">
+    <% if @movie.user_id == current_user.id %>
+      <%= link_to "Edit", edit_movie_path(@movie.id), class:"btn-sm btn-success" %>
+      <%= link_to "Destroy", movie_path(@movie.id), class:"btn-sm btn-danger", method: :delete, data: {confirm: "削除しますか？"} %>
+    <% end %>
+    </div>
+  </div>
 </div>
-
-<% if @movie.user_id == current_user.id %>
-  <td><%= link_to "Edit", edit_movie_path(@movie.id),class:"btn-sm btn-success" %></td>
-  <td><%= link_to "Destroy", movie_path(@movie.id), class:"btn-sm btn-danger", method: :delete, data: {confirm: "削除しますか？"} %></td>
-<% end %>
 
 <script>
 $(document).on('turbolinks:load', function(){
