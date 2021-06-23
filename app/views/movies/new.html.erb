@@ -1,25 +1,43 @@
-<h1>新規投稿</h1>
-<%#= form_with model: @movie, url: "", method: :post, local:true do |f| %>
-<%= form_with model: @movie, url: "/movies", method: :post, local:true do |f| %>
-<h4>作品名</h4>
-<%= f.text_field :title %>
-<h4>レビュー</h4>
-<%= f.text_area :review %>
+<div class="container">
+  <div class="row">
+    <h2 class="mt-5">新規投稿</h2>
+  </div>
 
-<div id="rate_stars">
-    <label>評価</label>
+  　<%= form_with model: @movie, url: "/movies", method: :post, local:true do |f| %>
+  　　　<table class="table table-hover table-borderless">
+          <tr>
+            <th>作品名</th>
+            <td><%= f.text_field :title %></td>
+          </tr>
+          <tr>
+            <th>評価</th>
+            <td>
+               <div id="rate_stars">
+                <!--<label>評価</label>-->
+               </div>
+            </td>
+          </tr>
+          <tr>
+            <th>ジャンル</th>
+            <td><%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "-- 選択してくたさい --"} %></td>
+          </tr>
+          <tr>
+            <th>感想</th>
+            <td> <%= f.text_area :review, size: "50x3" %></td>
+          </tr>
+    　</table>
+
+         <div class="mb-md-5">
+        <%= f.submit "作品登録" ,class: "btn btn-success" %>
+         </div>
+
+    <% end %>
+
 </div>
-
-<h4>視聴日</h4>
-<%= f.text_field :date %>
-<h4>ジャンル</h4>
-<%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "-- 選択してくたさい --"} %>
-<%= f.submit "作品登録" ,class: "btn btn-success" %>
-<% end %>
-
 
 <script>
 $(document).on('turbolinks:load', function(){
+  $('#rate_stars').empty();
   $('#rate_stars').raty({
     starOn: "<%= asset_path('star-on.png') %>",
     starOff: "<%= asset_path('star-off.png') %>",

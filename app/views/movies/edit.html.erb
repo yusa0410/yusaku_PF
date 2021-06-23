@@ -1,15 +1,29 @@
-<h1>作品編集画面</h1>
-<%= form_with model: @movie, local:true do |f| %>
-<h4>作品名</h4>
-<%= f.text_field :title %>
-<h4>レビュー</h4>
-<%= f.text_area :review %>
+<div class="container">
+  <div class="row">
+    <h2 class="mt-5">編集</h2>
+  </div>
 
-<h4>視聴日</h4>
-<%= f.text_field :date %>
-<h4>ジャンル</h4>
-<%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "-- 選択してくたさい --"} %>
-<%= f.submit "変更を保存" ,class: "btn btn-primary" %>
-<% end %>
+ 　　　<%= form_with model: @movie, local:true do |f| %>
+    　<table class="table table-hover table-borderless">
+    　 <tr>
+      　 <th>作品名</th>
+      　 <td><%= f.text_field :title %></td>
+    　 </tr>
+    　 <tr>
+    　   <th>レビュー</th>
+    　   <td><%= f.text_area :review, size: "50x3" %></td>
+    　 </tr>
+    　 <tr>
+    　   <th>ジャンル</th>
+    　   <td><%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "-- 選択してくたさい --"} %></td>
+    　 </tr>
+    　</table>
 
-<%= link_to "Show",movie_path(@movie.id)%>
+ 　　　<div class="mb-md-5">
+        <%= f.submit "変更を保存" ,class: "btn btn-success" %>
+        <%= link_to "投稿詳細",movie_path(@movie.id), class: "btn btn-primary" %>
+      </div>
+      <% end %>
+</div>
+
+     

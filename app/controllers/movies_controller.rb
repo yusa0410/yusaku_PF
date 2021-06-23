@@ -27,7 +27,7 @@ class MoviesController < ApplicationController
 
   def index
     @user = current_user
-    @movies = Movie.all
+    @movies = Movie.page(params[:page]).reverse_order
     @movie = Movie.new
     @users = User.all
   end

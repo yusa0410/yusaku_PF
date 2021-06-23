@@ -1,11 +1,27 @@
-<h2>Follower Users</h2>
-<% if @followers.exists? %>
-<% @followers.each do |user| %>
-    <%= attachment_image_tag(user, :profile_image, size:'100x100', fallback: "no_image.png") %>
-    <p><%= user.username %></p>
-    <p>フォロー数: <%= user.followings.count %></p>
-    <p>フォロワー数: <%= user.followers.count %></p>
-<% end %>
-<% else %>
-  <p>ユーザーはいません</p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="d-flex flex-row flex-wrap">
+      <% if @followers.exists? %>
+      <% @followers.each do |user| %>
+      <div class="card" style="width: 13rem;">
+        <div class ="item-image text-center">
+          <%= link_to user_path(user) do %>
+            <%= attachment_image_tag user, :profile_image, :fill, 150, 150, fallback: "no_image.png" %>
+          <% end %>
+        </div>
+        <div class="card-body">
+          <p class="card-title font-weight-bold"><%=link_to user.username, user_path(user) %></p>
+          <p>投稿数：<%= user.movies.count %></p>
+          <p>フォロワー<%= user.followers.count %>人</p>
+          <p>フォロー<%= user.followings.count %>人</p>
+          <% end %>
+        <% else %>
+          <p>ユーザーはいません</p>
+        <% end %>
+        </div>
+       </div>
+      </div>
+    </div>
+</div>
+
+
