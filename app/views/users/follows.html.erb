@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="d-flex flex-row flex-wrap">
+    <div class="d-flex flex-row flex-wrap py-3">
       <% if @followings.exists? %>
       <% @followings.each do |user| %>
         <div class="card" style="width: 13rem;">
@@ -14,12 +14,12 @@
             <p>投稿数：<%= user.movies.count %></p>
             <p>フォロワー<%= user.followers.count %>人</p>
             <p>フォロー<%= user.followings.count %>人</p>
+          </div>
+          </div>
             <% end %>
         <% else %>
           <p>ユーザーはいません</p>
         <% end %>
-        </div>
-       </div>
-      </div>
     </div>
+  </div>
 </div>
