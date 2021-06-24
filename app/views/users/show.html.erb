@@ -91,7 +91,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @user.movies.each do |movie| %>
+        <% @movies.each do |movie| %>
         <tr>
           <td>
             <%= link_to movie_path(movie) do %>
@@ -107,7 +107,8 @@
     </table>
   </div>
 </div>
-<%#= paginate @user.movies %>
+
+<%= paginate @movies %>
 
 <script>
 $(document).on('turbolinks:load', function(){
