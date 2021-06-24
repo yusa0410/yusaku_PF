@@ -4,8 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #@users = User.page(params[:page]).reverse_order
-    #@movies = Movie.page(params[:page]).reverse_order
+    #@user.movies = Movie.page(params[:page]).reverse_order
     @currentUserEntry=Entry.where(user_id: current_user.id) #DM機能5行目〜２２行目
     @userEntry=Entry.where(user_id: @user.id)
     if @user.id == current_user.id
@@ -28,7 +27,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.page(params[:page]).reverse_order
-    
+
   end
 
   def edit
