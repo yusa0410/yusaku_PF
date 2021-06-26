@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users
   get '/' => 'homes#top'
   get "home/about" => "homes#about"
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   resources :rooms, :only => [:create, :show, :index]
 
   get "search" => "searches#search"
+  post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
 
 
 end

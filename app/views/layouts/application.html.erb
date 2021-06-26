@@ -28,7 +28,8 @@
               <li class="nav-button btn btn-sm mx-2 my-auto"><%= link_to "ログアウト",destroy_user_session_path, method: :delete, class: "nav-link" %></li>
               <li class="col-auto mx-auto"><%= render 'searches/search' %></li>
             <% else %>
-              <li class="nav-button btn btn-sm mx-2 my-auto"><%= link_to "新規登録",new_user_registration_path, class: "nav-link" %> </li>
+            　<li class="nav-button btn btn-sm mx-2 my-auto"><%= link_to "ゲストログイン（閲覧用）", homes_guest_sign_in_path, method: :post, class: "nav-link" %></li>
+              <li class="nav-button btn btn-sm mx-2 my-auto"><%= link_to "新規登録",new_user_registration_path, class: "nav-link" %></li>
               <li class="nav-button btn btn-sm mx-2 my-auto"><%= link_to "ログイン",new_user_session_path, class: "nav-link" %></li>
             <% end %>
           </ul>
