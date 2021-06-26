@@ -124,13 +124,20 @@ hr {
  color: #e54747;
  }
 
-footer{
-  width: 100%;
-  position: absolute;/*←絶対位置*/
-  bottom: 0; /*下に固定*/
-  margin-bottom: -500px;
-}
-
 .link {
   color: black;
+}
+
+.footerFixed{
+    min-height: 100vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
+    position: relative;/* ←相対位置 */
+    box-sizing: border-box;
+    /* ↑ヘッダーやフッターを含むすべての要素の高さ＝min-height:100vhになるように指定 */
+}
+
+footer{
+    width: 100%;
+    position: absolute;/* ←絶対位置 */
+    bottom: 0;
+    margin-bottom: -30px;
 }
