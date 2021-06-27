@@ -23,9 +23,9 @@ class Movie < ApplicationRecord
       @movie = Movie.all
     end
   end
-  
+
   validates :title, presence: true
-  validates :body, presence: true,length: { maximum: 200}
+  validates :review, presence: true,length: { maximum: 200}
 
 
 
