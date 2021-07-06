@@ -1,1 +1,2 @@
 $("#comment-<%= @movie.id %>").html("<%= j(render partial: 'movies/comment', locals: {movie: @movie} )%>")
+$("textarea").val('')
