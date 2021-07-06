@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @user = current_user
+    user = current_user
     @movie = Movie.new(movie_params)
     @movie.user_id = current_user.id
     if @movie.save
@@ -21,12 +21,12 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-    @user = current_user
+    user = current_user
     @movie_comment = MovieComment.new
   end
 
   def index
-    @user = current_user
+    user = current_user
     @movies = Movie.page(params[:page]).reverse_order
     @movie = Movie.new
     @users = User.all
