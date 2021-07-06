@@ -10,6 +10,14 @@
       　 <td><%= f.text_field :title %></td>
     　 </tr>
     　 <tr>
+          <th>評価</th>
+          <td>
+               <div id="rate_stars">
+                <!--<label>評価</label>-->
+               </div>
+            </td>
+        </tr>
+    　 <tr>
     　   <th>レビュー</th>
     　   <td><%= f.text_area :review, size: "50x3" %></td>
     　 </tr>
@@ -27,3 +35,15 @@
 </div>
 
      
+<script>
+$(document).on('turbolinks:load', function(){
+  $('#rate_stars').empty();
+  $('#rate_stars').raty({
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    half: true,
+    scoreName: 'movie[rate]' //登録するモデル名とカラム名を記述
+  });
+});
+</script>
